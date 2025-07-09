@@ -1,0 +1,38 @@
+# Ubuntu APT Pakete
+# Entwicklungstools und CLI-Programme
+
+# Shell und Terminal
+zsh
+# starship (wird separat installiert)
+
+# Dateisystem und Navigation
+fzf
+direnv
+mc
+
+# Editoren und Development
+neovim
+tmux
+yadm
+git
+
+# System-Tools
+bat
+jq
+nmap
+iperf3
+tcpdump
+cmatrix
+
+# Build-Tools und Abhängigkeiten
+build-essential
+curl
+wget
+unzip
+tree
+
+# Zusätzliche Utilities
+htop
+net-tools
+vim
+nano
