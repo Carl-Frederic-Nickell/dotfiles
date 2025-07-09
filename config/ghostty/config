@@ -1,0 +1,21 @@
+# Terminal-Einstellungen
+term = "xterm-256color"
+command = /bin/zsh  # ← ZSH statt Fish
+
+# Erscheinungsbild
+theme = catppuccin-mocha
+
+# Fenstereigenschaften
+window-decoration = true
+gtk-titlebar = false
+
+# Schrift
+font-family = JetBrainsMono Nerd Font Mono  # ← „Mono“ empfohlen
+font-size = 16
+
+# Transparenz und Effekte
+background-opacity = 0.94
+# background-blur-radius = 20
+
+# Verhaltenseinstellungen
+

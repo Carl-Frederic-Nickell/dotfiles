@@ -1,0 +1,188 @@
+# Eza functions for zsh
+
+# ezat - Tree with customizable depth
+ezat() {
+    if [ $# -eq 0 ]; then
+        eza -T --level=2
+    else
+        eza -T --level=$1
+    fi
+}
+
+# ezas - Size sorted with color scale
+ezas() {
+    eza -la -s size --reverse --color-scale "$@"
+}
+
+# ezag - Git status optimized
+ezag() {
+    eza -la --git --group-directories-first "$@"
+}
+
+# ezaf - Fuzzy finder integration
+ezaf() {
+    local selected
+    selected=$(eza -1 | fzf --preview 'eza -la {}' --height 40% --reverse --border)
+    if [ -n "$selected" ]; then
+        if [ -d "$selected" ]; then
+            cd "$selected"
+            echo "Changed to: $(pwd)"
+            ll
+        else
+            echo "Selected file: $selected"
+            # Optional: open file with default editor
+            # $EDITOR "$selected"
+        fi
+    fi
+}
+
+# Enhanced fzf functions
+
+# fzd - Fuzzy find and cd to directory
+fzd() {
+    local dir
+    dir=$(find . -type d -name ".git" -prune -o -type d -print 2>/dev/null | fzf --preview 'eza -la {}' --height 40% --reverse)
+    if [ -n "$dir" ]; then
+        cd "$dir"
+        echo "Changed to: $(pwd)"
+        ll
+    fi
+}
+
+# fzf - Fuzzy find file and open
+fzfile() {
+    local file
+    file=$(find . -type f -name ".git" -prune -o -type f -print 2>/dev/null | fzf --preview 'bat --color=always {}' --height 40% --reverse)
+    if [ -n "$file" ]; then
+        $EDITOR "$file"
+    fi
+}
+
+# fzz - Fuzzy zoxide integration
+fzz() {
+    local selected
+    selected=$(zoxide query -l | fzf --preview 'eza -la {}' --height 40% --reverse --border)
+    if [ -n "$selected" ]; then
+        z "$selected"
+        ll
+    fi
+}
+
+# Development functions
+
+# mkcd - Make directory and cd into it
+mkcd() {
+    if [ $# -eq 0 ]; then
+        echo "Usage: mkcd <directory_name>"
+        return 1
+    fi
+    mkdir -p "$1" && cd "$1"
+    echo "Created and changed to: $(pwd)"
+}
+
+# cdp - Quick project navigation
+cdp() {
+    if [ $# -eq 0 ]; then
+        cd ~/projects
+        ll
+    else
+        if [ -d ~/projects/"$1" ]; then
+            cd ~/projects/"$1"
+            echo "Changed to project: $1"
+            ll
+        else
+            echo "Project '$1' not found in ~/projects/"
+            echo "Available projects:"
+            ls ~/projects/ 2>/dev/null || echo "~/projects directory doesn't exist"
+        fi
+    fi
+}
+
+# Quick edit functions
+
+# nvconf - Edit Neovim config
+nvconf() {
+    if [ -f ~/.config/nvim/init.lua ]; then
+        nvim ~/.config/nvim/init.lua
+    elif [ -f ~/.config/nvim/init.vim ]; then
+        nvim ~/.config/nvim/init.vim
+    else
+        echo "Neovim config not found"
+    fi
+}
+
+# fishconf - Edit Fish config
+fishconf() {
+    if [ -f ~/.config/fish/config.fish ]; then
+        nvim ~/.config/fish/config.fish
+    else
+        echo "Fish config not found"
+    fi
+}
+
+# zshconf - Edit zsh config
+zshconf() {
+    nvim ~/.zshrc
+}
+
+# Git functions with fzf
+
+# fzbranch - Fuzzy checkout git branch
+fzbranch() {
+    local branch
+    branch=$(git branch -a | grep -v HEAD | sed 's/^..//' | fzf --height 40% --reverse)
+    if [ -n "$branch" ]; then
+        git checkout "$branch"
+    fi
+}
+
+# fzlog - Fuzzy git log
+fzlog() {
+    git log --oneline --color=always | fzf --ansi --preview 'git show --color=always {1}' --height 60%
+}
+
+# System functions
+
+# fzps - Fuzzy process selector (for kill, etc.)
+fzps() {
+    local pid
+    pid=$(ps aux | grep -v grep | fzf --header="Select process" --height 40% | awk '{print $2}')
+    if [ -n "$pid" ]; then
+        echo "Selected PID: $pid"
+        echo "Process: $(ps -p $pid -o comm=)"
+        read "?Kill this process? (y/N): " confirm
+        if [[ $confirm == [yY] ]]; then
+            kill "$pid"
+            echo "Process $pid killed"
+        fi
+    fi
+}
+
+# Help function
+fzhelp() {
+    echo "Available custom functions:"
+    echo ""
+    echo "File/Directory Navigation:"
+    echo "  ezat [level]  - Tree view with custom depth"
+    echo "  ezas [path]   - Size-sorted listing with color scale"
+    echo "  ezag [path]   - Git status listing"
+    echo "  ezaf          - Fuzzy file/directory selector"
+    echo "  fzd           - Fuzzy directory finder"
+    echo "  fzfile        - Fuzzy file finder and editor"
+    echo "  fzz           - Fuzzy zoxide (recent directories)"
+    echo ""
+    echo "Development:"
+    echo "  mkcd <dir>    - Make and cd to directory"
+    echo "  cdp [project] - Navigate to projects"
+    echo "  nvconf        - Edit Neovim config"
+    echo "  fishconf      - Edit Fish config"
+    echo "  zshconf       - Edit zsh config"
+    echo ""
+    echo "Git:"
+    echo "  fzbranch      - Fuzzy git branch checkout"
+    echo "  fzlog         - Fuzzy git log viewer"
+    echo ""
+    echo "System:"
+    echo "  fzps          - Fuzzy process selector"
+    echo "  fzhelp        - Show this help"
+}

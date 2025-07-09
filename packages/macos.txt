@@ -1,0 +1,27 @@
+# macOS Homebrew Pakete
+# Entwicklungstools und CLI-Programme
+
+# Shell und Terminal
+zsh
+starship
+
+# Dateisystem und Navigation
+eza
+fzf
+zoxide
+direnv
+midnight-commander
+
+# Editoren und Development
+nvim
+lazygit
+tmux
+yadm
+
+# System-Tools
+bat
+jq
+nmap
+iperf3
+tcpdump
+cmatrix
