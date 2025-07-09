@@ -1,0 +1,35 @@
+# Windows Pakete (winget/chocolatey)
+# Format: winget:ID oder choco:name oder nur name (versucht beide)
+
+# Entwicklungstools
+winget:Git.Git
+winget:Neovim.Neovim
+winget:Microsoft.VisualStudioCode
+
+# Terminal und Shell
+winget:Microsoft.WindowsTerminal
+winget:Microsoft.PowerShell
+
+# Moderne CLI-Tools
+winget:BurntSushi.ripgrep.MSVC
+winget:sharkdp.bat
+winget:junegunn.fzf
+winget:ajeetdsouza.zoxide
+winget:starship.starship
+
+# System-Tools  
+winget:WinSCP.WinSCP
+winget:PuTTY.PuTTY
+choco:nmap
+choco:iperf3
+
+# Utilities
+winget:7zip.7zip
+winget:JanDeDobbeleer.OhMyPosh
+choco:lazygit
+
+# Optional: WSL für Linux-ähnliche Umgebung
+# winget:Microsoft.WSL
+
+# Optional: Package Manager
+# choco:chocolatey-core.extension
