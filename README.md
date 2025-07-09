@@ -221,7 +221,7 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 - 🌐 Portfolio: [carl-cyber.tech](https://carl-cyber.tech)
 - 💼 LinkedIn: [Carl-Frederic Nickell](https://linkedin.com/in/carl-frederic-nickell)
-- 📧 Email: contact@carl-cyber.tech
+- 📧 Email: mail@carl-cyber.tech
 
 ---
 
