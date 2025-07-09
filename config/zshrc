@@ -4,7 +4,6 @@
 
 # Basic PATH configuration
 export PATH="/opt/homebrew/bin:$PATH"
-export OLLAMA_MODELS="/Volumes/WD 2TB/OllamaModels"
 
 # =============================================================================
 # ZSH AUTOCOMPLETION & FEATURES
@@ -69,7 +68,7 @@ alias li='eza --icons'
 alias lt='eza -T --level=2'
 alias lsize='eza -la -s size --reverse'
 alias ltime='eza -la -s modified --reverse'
-alias lconfig='eza -la ~/.config/ --tree --level=2'
+alias lconfig='eza -la ~/.config --tree --level=2'
 alias lproj='eza -T --level=2 --ignore-glob=node_modules'
 alias lgit='eza -la --git --group-directories-first'
 
