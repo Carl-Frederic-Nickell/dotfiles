@@ -218,9 +218,8 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 **Carl-Frederic Nickell**  
 *DevOps Engineer & Cybersecurity Enthusiast*
-
 - 🌐 Portfolio: [carl-cyber.tech](https://carl-cyber.tech)
-- 💼 LinkedIn: [Carl-Frederic Nickell](https://linkedin.com/in/carl-frederic-nickell)
+- 💼 LinkedIn: [Carl-Frederic Nickell](https://www.linkedin.com/in/cfnickell/)
 - 📧 Email: contact@carl-cyber.tech
 
 ---
