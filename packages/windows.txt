@@ -1,0 +1,53 @@
+# Windows (WSL2) Package List
+# Packages to install via apt in WSL
+
+## Base Tools
+build-essential
+curl
+wget
+git
+stow
+ca-certificates
+
+## Terminal Enhancements
+bat
+fzf
+ripgrep
+fd-find
+jq
+shellcheck
+neofetch
+
+## Shells
+zsh
+
+## Multiplexer
+tmux
+
+## File Managers
+mc
+
+## DevOps Tools
+docker
+docker-compose
+terraform
+kubectl
+nmap
+
+## Development
+neovim
+python3
+python3-pip
+cmake
+pkg-config
+
+## Terminal Emulator
+# Install WezTerm on Windows (not in WSL):
+# Download from: https://wezfurlong.org/wezterm/installation.html
+# Or use winget: winget install wez.wezterm
+
+## Notes for Windows:
+# - Install WSL2 first: wsl --install
+# - WezTerm recommended as terminal (install on Windows, not WSL)
+# - Docker Desktop for Windows recommended
+# - Consider using Homebrew on WSL for additional packages

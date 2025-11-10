@@ -1,0 +1,53 @@
+# Linux Package List
+# Packages to install via apt/yum/pacman
+
+## Base Tools
+build-essential
+curl
+wget
+git
+stow
+ca-certificates
+
+## Terminal Enhancements
+bat
+fzf
+ripgrep
+fd-find
+jq
+shellcheck
+neofetch
+
+## Shells & Prompt
+starship
+
+## Multiplexer
+tmux
+
+## File Managers
+mc
+
+## DevOps Tools
+docker
+docker-compose
+terraform
+kubectl
+helm
+nmap
+
+## Development
+neovim
+python3
+python3-pip
+python3-venv
+cmake
+pkg-config
+libssl-dev
+
+## Additional (via Homebrew on Linux)
+eza
+zoxide
+btop
+lazygit
+atuin
+carapace

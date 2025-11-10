@@ -1,0 +1,75 @@
+# macOS Package List
+# Packages to install via Homebrew
+
+## Terminal Enhancements
+bat
+eza
+fzf
+ripgrep
+fd
+zoxide
+btop
+neofetch
+tree-sitter
+jq
+shellcheck
+direnv
+carapace
+atuin
+lazygit
+cmatrix
+
+## Shells & Prompt
+zsh-autosuggestions
+starship
+
+## Multiplexer
+tmux
+
+## File Managers
+midnight-commander
+
+## DevOps Tools
+docker
+docker-completion
+terraform
+terragrunt
+tfenv
+awscli
+kubectl
+helm
+glab
+nmap
+tcpdump
+iperf3
+
+## Development
+neovim
+git
+node
+nvm
+python@3.12
+python@3.13
+cmake
+make
+grep
+wget
+openssl@3
+opencode
+
+## System Tools
+coreutils
+findutils
+gnu-tar
+gnu-sed
+gawk
+stow
+
+## Casks (Applications)
+ghostty
+aerospace
+font-meslo-lg-nerd-font
+font-jetbrains-mono-nerd-font
+font-fira-code-nerd-font
+font-hack-nerd-font
+docker

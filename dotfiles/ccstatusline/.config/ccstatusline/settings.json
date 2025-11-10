@@ -1,0 +1,133 @@
+{
+  "version": 3,
+  "lines": [
+    [
+      {
+        "id": "5f447b51-a74a-42bb-bf37-e9991804af59",
+        "type": "tokens-input",
+        "color": "brightGreen"
+      },
+      {
+        "id": "259f0345-a7d9-420a-b27e-d182f9f269d6",
+        "type": "separator"
+      },
+      {
+        "id": "f1075f3b-e4af-4426-81ea-7d2d950efa31",
+        "type": "tokens-output",
+        "color": "brightRed"
+      },
+      {
+        "id": "463abcf8-cd4d-46e1-b0d5-2c9eb0ef3f1a",
+        "type": "separator"
+      },
+      {
+        "id": "f906dab6-c52f-4a0e-8779-a312e106b3cd",
+        "type": "tokens-total",
+        "color": "brightCyan"
+      },
+      {
+        "id": "5a1b312c-8661-4fac-8a77-ab4d0064aee8",
+        "type": "separator"
+      },
+      {
+        "id": "35c924d4-6b4a-43e0-8f95-56aa5707a2e4",
+        "type": "context-length",
+        "color": "brightWhite"
+      },
+      {
+        "id": "65f54217-e3c0-438b-acc0-7a2f25cd8efc",
+        "type": "separator"
+      },
+      {
+        "id": "1b763cda-0ad5-425c-be35-96aad2eb2485",
+        "type": "context-percentage",
+        "color": "white"
+      },
+      {
+        "id": "c09ae515-7b2f-441d-a64f-f5d2e64633a3",
+        "type": "separator"
+      },
+      {
+        "id": "d7d5e868-0e1c-4251-b449-6b3410bcd557",
+        "type": "session-cost",
+        "color": "yellow"
+      }
+    ],
+    [
+      {
+        "id": "e62ad828-3616-4927-8a85-9e78876f4c9f",
+        "type": "current-working-dir",
+        "color": "brightBlue"
+      },
+      {
+        "id": "3b034695-dbf7-48e5-aded-61a9a0fabbb9",
+        "type": "separator"
+      },
+      {
+        "id": "5e830eb6-5ba2-4f52-a7e5-4d70aff9f3ff",
+        "type": "git-branch",
+        "color": "blue"
+      },
+      {
+        "id": "6b2bda4b-efa0-412d-be37-0219a9f12ba4",
+        "type": "separator"
+      },
+      {
+        "id": "d53b3045-fa63-482a-80df-4b05e92502f8",
+        "type": "git-changes",
+        "color": "yellow"
+      }
+    ],
+    [
+      {
+        "id": "4d59a4d5-4138-4344-8909-c836b965242a",
+        "type": "block-timer",
+        "color": "magenta"
+      },
+      {
+        "id": "26829934-4e31-4367-a499-1c4e6c5f6cd1",
+        "type": "separator"
+      },
+      {
+        "id": "37fd49e7-c3c8-4f2e-ba03-98f58d37d2fa",
+        "type": "session-clock",
+        "color": "magenta"
+      },
+      {
+        "id": "847ecec3-7c80-4149-84b9-02e0256712ad",
+        "type": "separator"
+      },
+      {
+        "id": "9ce41b90-cf14-4edb-b2cb-fb9f8ca2b22b",
+        "type": "model",
+        "color": "brightBlue"
+      },
+      {
+        "id": "7e0577a9-c589-4458-888b-008931b0bcee",
+        "type": "separator"
+      },
+      {
+        "id": "7ef4ccea-ebd8-4c2b-a2fb-206072eac7b8",
+        "type": "output-style",
+        "color": "brightCyan"
+      }
+    ]
+  ],
+  "flexMode": "full-minus-40",
+  "compactThreshold": 60,
+  "colorLevel": 2,
+  "inheritSeparatorColors": false,
+  "globalBold": false,
+  "powerline": {
+    "enabled": false,
+    "separators": [
+      ""
+    ],
+    "separatorInvertBackground": [
+      false
+    ],
+    "startCaps": [],
+    "endCaps": [],
+    "autoAlign": false
+  }
+}

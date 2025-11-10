@@ -1,0 +1,86 @@
+# Sensitive Files
+**/*secret*
+**/*token*
+**/*password*
+**/*credential*
+**/*.key
+**/*.pem
+**/*.p12
+**/*.pfx
+
+# SSH Keys
+**/.ssh/id_*
+**/.ssh/*.pem
+**/.ssh/known_hosts
+
+# AWS Credentials
+**/.aws/credentials
+**/.aws/config
+
+# Git credentials
+**/.gitconfig.local
+**/.git-credentials
+
+# Environment files
+**/.env
+**/.env.*
+!**/.env.example
+
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Backup files
+*.backup
+*.bak
+*~
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Atuin sensitive data
+**/atuin/history.db*
+**/atuin/key
+**/atuin/session
+**/atuin/*.db*
+
+# Shell history files
+**/.bash_history
+**/.zsh_history
+**/.fish_history
+
+# Node modules
+node_modules/
+**/node_modules/
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Local machine-specific configs
+*.local
+*_local
+
+# GitLab CLI sensitive data
+**/glab-cli/recover/
+
+# Homebrew
+Brewfile.lock.json
