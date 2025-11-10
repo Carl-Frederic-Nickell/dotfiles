@@ -108,13 +108,13 @@ backup_configs() {
             mkdir -p "$(dirname "$BACKUP_DIR/$config")"
 
             if cp -r "$HOME/$config" "$BACKUP_DIR/$config" 2>/dev/null; then
-                ((configs_backed_up++))
+                configs_backed_up=$((configs_backed_up + 1))
             else
                 print_warning "Failed to backup $config"
-                ((backup_failed++))
+                backup_failed=$((backup_failed + 1))
             fi
         else
-            ((skipped++))
+            skipped=$((skipped + 1))
         fi
     done
 
