@@ -87,3 +87,18 @@ Brewfile.lock.json
 
 # Personal sanitize script (contains sensitive data patterns - DO NOT COMMIT)
 sanitize-personal.sh
+
+# Working documentation and development notes
+IMPROVEMENTS.md
+SESSION-SUMMARY.md
+SUMMARY.md
+TESTING-REPORT.md
+SETUP-COMPLETE.md
+SANITIZATION-README.md
+INTERACTIVE-MODE.md
+
+# Working/testing scripts
+demo-interactive.sh
+verify-installation.sh
+verify-setup.sh
+sanitize.sh
