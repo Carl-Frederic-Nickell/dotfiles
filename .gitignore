@@ -84,3 +84,6 @@ venv/
 
 # Homebrew
 Brewfile.lock.json
+
+# Personal sanitize script (contains sensitive data patterns - DO NOT COMMIT)
+sanitize-personal.sh

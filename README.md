@@ -99,7 +99,27 @@ git pull
 - Nerd Fonts (JetBrains Mono, Meslo, Fira Code, Hack)
 - macOS defaults configuration (with safety prompts)
 
-## Selective Installation
+## Installation Methods
+
+### 🎯 Interactive Mode (NEW!)
+
+The easiest way to choose what to install:
+
+```bash
+./install.sh --interactive
+# or
+./install.sh -i
+```
+
+**Features:**
+- 📋 Visual menu with category descriptions
+- ✓ Multi-select using TAB key
+- 💾 Save configurations for reuse across machines
+- 🔍 See exactly what will be installed before proceeding
+
+See [INTERACTIVE-MODE.md](INTERACTIVE-MODE.md) for full documentation and examples.
+
+### 🚩 Selective Installation with Flags
 
 Install only the components you need:
 

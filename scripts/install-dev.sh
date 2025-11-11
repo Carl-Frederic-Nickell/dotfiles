@@ -53,6 +53,8 @@ install_node() {
                 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
                 print_success "NVM installed"
+                print_info "Note: NVM initialization code has been added to your shell config"
+                print_info "Ensure your dotfiles .zshrc includes NVM initialization"
             else
                 print_error "Downloaded NVM script is empty"
                 rm "$tmp_script"
@@ -70,6 +72,7 @@ install_node() {
         nvm install --lts
         nvm use --lts
         nvm alias default lts/*
+        print_success "Node.js $(node --version) installed"
     fi
 
     # Install Node if nvm failed
@@ -79,6 +82,15 @@ install_node() {
             brew install node
         elif command_exists brew; then
             brew install node
+        fi
+    fi
+
+    # Verify NVM is properly configured
+    if command_exists nvm && [ -f "$HOME/.zshrc" ]; then
+        if ! grep -q "NVM_DIR" "$HOME/.zshrc" 2>/dev/null; then
+            print_warning "NVM initialization not found in .zshrc"
+            print_warning "This may happen if dotfiles were installed after NVM"
+            print_info "Make sure your dotfiles template includes NVM initialization"
         fi
     fi
 }

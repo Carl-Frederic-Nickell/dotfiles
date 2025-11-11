@@ -147,6 +147,7 @@ Cross-platform dotfiles and development environment installer.
 
 OPTIONS:
     --help, -h              Show this help message
+    --interactive, -i       Interactive mode - select what to install with a menu
     --skip-base             Skip base tools installation (Homebrew, git, stow)
     --skip-terminal         Skip terminal enhancements (bat, eza, fzf, etc.)
     --skip-devops           Skip DevOps tools (Docker, K8s, Terraform, etc.)
@@ -165,6 +166,9 @@ ENVIRONMENT VARIABLES:
     NVM_VERSION=v0.40.0     Specify NVM version to install
 
 EXAMPLES:
+    # Interactive mode (recommended for first-time users)
+    ./install.sh --interactive
+
     # Install everything (default)
     ./install.sh
 
@@ -177,6 +181,9 @@ EXAMPLES:
     # CI/CD usage
     NONINTERACTIVE=1 ./install.sh --skip-macos
 
+    # Load saved configuration
+    source ~/.dotfiles-install-config && ./install.sh
+
 EOF
 }
 
@@ -186,6 +193,20 @@ parse_args() {
             --help|-h)
                 show_help
                 exit 0
+                ;;
+            --interactive|-i)
+                # Run interactive selection
+                if [ ! -f "$SCRIPTS_DIR/interactive-select.sh" ]; then
+                    print_error "interactive-select.sh not found"
+                    exit 1
+                fi
+
+                # Make executable
+                chmod +x "$SCRIPTS_DIR/interactive-select.sh"
+
+                # Run interactive selector (it will export SKIP_* variables)
+                source "$SCRIPTS_DIR/interactive-select.sh"
+                shift
                 ;;
             --skip-base)
                 SKIP_BASE=true
@@ -311,13 +332,23 @@ main() {
     # Display post-install instructions
     echo ""
     print_info "Next steps:"
-    echo "  1. Restart your terminal"
+    echo "  1. Restart your terminal or run: exec \$SHELL"
     if [ "$SKIP_DEV" != true ]; then
-        echo "  2. Run 'nvim' to let plugins install"
-        echo "  3. Configure any API keys (AWS, etc.)"
+        echo "  2. Verify Node.js is available: node --version"
+        echo "  3. Run 'nvim' to let plugins install"
+        echo "  4. Open tmux and press 'prefix + I' to install plugins"
+        echo "  5. Configure any API keys (AWS, etc.)"
     fi
     echo ""
     print_success "Backup location: $BACKUP_DIR"
+    echo ""
+
+    # Run verification if available
+    if [ -f "$SCRIPT_DIR/verify-installation.sh" ]; then
+        print_info "Running post-install verification..."
+        echo ""
+        bash "$SCRIPT_DIR/verify-installation.sh" || true
+    fi
 }
 
 # Run main function

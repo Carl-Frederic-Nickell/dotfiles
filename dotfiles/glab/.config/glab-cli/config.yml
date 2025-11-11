@@ -13,7 +13,7 @@ last_update_check_timestamp: 2025-11-09T12:09:05+01:00
 # Whether or not to display hyperlink escape characters when listing items like issues or merge requests. Set to TRUE to display hyperlinks in TTYs only. Force hyperlinks by setting FORCE_HYPERLINKS=1 as an environment variable.
 display_hyperlinks: false
 # Default GitLab hostname to use.
-host: gitlab.carl-cyber.tech:8443
+host: gitlab.example.com
 # Set to true (1) to disable prompts, or false (0) to enable them.
 no_prompt: false
 # Set to false (0) to disable sending usage data to your GitLab instance or true (1) to enable.
@@ -38,11 +38,11 @@ hosts:
         # - name: Cf-Access-Client-Secret
         #   valueFromEnv: MY_SECRET_VALUE
         custom_headers: []
-    gitlab.carl-cyber.tech:8443:
-        token: YOUR_GITLAB_TOKEN_HERE.01.0w0oysbev
-        container_registry_domains: gitlab.carl-cyber.tech:8443,registry.gitlab.carl-cyber.tech:8443
-        api_host: gitlab.carl-cyber.tech:8443
+    gitlab.example.com:
+        token: YOUR_GITLAB_TOKEN_HERE
+        container_registry_domains: gitlab.example.com,registry.gitlab.example.com
+        api_host: gitlab.example.com
         git_protocol: https
         api_protocol: https
-        user: Carl
+        user: YOUR_USERNAME
         skip_tls_verify: "true"

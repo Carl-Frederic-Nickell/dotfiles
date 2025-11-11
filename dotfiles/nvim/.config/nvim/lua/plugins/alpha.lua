@@ -32,7 +32,7 @@ startify.section.top_buttons.val = {
     else
       -- Alternative: Erstelle Daily Note manuell
       local date = os.date("%Y-%m-%d")
-      vim.cmd("e ~/Documents/12. Obsidian/CARLs NoteLab/06 - Daily/2025/" .. date .. ".md")
+      vim.cmd("e ~/Documents/Obsidian/NoteLab/06 - Daily/2025/" .. date .. ".md")
     end
   end),
   startify.button("D", "🐳  Docker Compose", ":e docker-compose.yml<CR>"),
@@ -53,7 +53,7 @@ startify.section.top_buttons.val = {
         if pcall(require, "obsidian") then
           vim.cmd("ObsidianSearch")
         else
-          vim.cmd("Telescope find_files cwd=~/Documents/12. Obsidian/CARLs NoteLab/")
+          vim.cmd("Telescope find_files cwd=~/Documents/Obsidian/NoteLab/")
         end
       end),
       startify.button("d", "🐛  Debug starten", ":lua require('dap').continue()<CR>"),

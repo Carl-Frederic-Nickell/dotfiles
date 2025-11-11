@@ -9,8 +9,8 @@ return {
   opts = {
     workspaces = {
       {
-        name = "CARLs-NoteLab",
-        path = "/Users/carl/Documents/12. Obsidian/CARLs NoteLab",
+        name = "NoteLab",
+        path = "~/Documents/Obsidian/NoteLab",
       },
     },
     

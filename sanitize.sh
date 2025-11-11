@@ -35,11 +35,26 @@ fi
 echo "🔒 Sanitizing Sensitive Data..."
 echo ""
 
-# 1. Remove GitLab token from glab config
+# 1. GitLab Configuration - Remove ALL personal data
 if [ -f "dotfiles/glab/.config/glab-cli/config.yml" ]; then
-    print_warning "FOUND: GitLab token in glab config"
+    print_warning "FOUND: GitLab configuration with sensitive data"
+
+    # GitLab tokens (multiple patterns)
     sed_inplace 's/token: glpat-[A-Za-z0-9_-]*/token: YOUR_GITLAB_TOKEN_HERE/g' dotfiles/glab/.config/glab-cli/config.yml
-    print_success "Sanitized GitLab token"
+    sed_inplace 's/token: YOUR_GITLAB_TOKEN_HERE\.[^[:space:]]*/token: YOUR_GITLAB_TOKEN_HERE/g' dotfiles/glab/.config/glab-cli/config.yml
+
+    # GitLab server URL and domain
+    sed_inplace 's|host: gitlab\.carl-cyber\.tech:8443|host: gitlab.example.com|g' dotfiles/glab/.config/glab-cli/config.yml
+    sed_inplace 's|gitlab\.carl-cyber\.tech:8443|gitlab.example.com|g' dotfiles/glab/.config/glab-cli/config.yml
+    sed_inplace 's|registry\.gitlab\.carl-cyber\.tech:8443|registry.gitlab.example.com|g' dotfiles/glab/.config/glab-cli/config.yml
+
+    # Username
+    sed_inplace 's/user: Carl/user: YOUR_USERNAME/g' dotfiles/glab/.config/glab-cli/config.yml
+
+    # Domain name (general)
+    sed_inplace 's/carl-cyber\.tech/example.com/g' dotfiles/glab/.config/glab-cli/config.yml
+
+    print_success "Sanitized GitLab configuration"
 fi
 
 # 2. Remove email from git config (optional - comment out if you want to keep it)

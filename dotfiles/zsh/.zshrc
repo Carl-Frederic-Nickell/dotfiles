@@ -71,6 +71,36 @@ elif [ -f /home/linuxbrew/.linuxbrew/share/zsh-autosuggestions/zsh-autosuggestio
 fi
 
 # =============================================================================
+# NODE VERSION MANAGER (NVM)
+# =============================================================================
+
+# Initialize NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Auto-load .nvmrc when changing directories
+autoload -U add-zsh-hook
+load-nvmrc() {
+  local node_version="$(nvm version 2>/dev/null)"
+  local nvmrc_path="$(nvm_find_nvmrc 2>/dev/null)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$node_version" ]; then
+      nvm use
+    fi
+  elif [ "$node_version" != "$(nvm version default 2>/dev/null)" ]; then
+    nvm use default 2>/dev/null
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc 2>/dev/null
+
+# =============================================================================
 # EZA CONFIGURATION
 # =============================================================================
 
@@ -273,10 +303,9 @@ fi
 # Show system info on startup
 neofetch
 export PATH="$HOME/.local/bin:$PATH"
-. "$HOME/.atuin/bin/env"
 
+# Atuin installed via Homebrew, no need for manual env sourcing
 eval "$(atuin init zsh)"
-export PATH="$HOME/.atuin/bin:$PATH"
 # shellcheck disable=SC2034,SC2153,SC2086,SC2155
 
 # Above line is because shellcheck doesn't support zsh, per
