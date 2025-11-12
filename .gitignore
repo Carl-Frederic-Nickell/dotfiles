@@ -101,4 +101,3 @@ INTERACTIVE-MODE.md
 demo-interactive.sh
 verify-installation.sh
 verify-setup.sh
-sanitize.sh
